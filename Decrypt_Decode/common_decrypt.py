@@ -36,8 +36,11 @@ def base64dec(msg):
     msg_byte = base64.b64decode(base64_msg_byte)
     print(msg_byte.decode('ascii'))
 
-def all(msg):
-    print("Do everything...")
+def a(msg): #Think a bit about what this should do...
+    for cmd in dec_types[:-3]: #Don't use base64dec and a again...
+        command = cmd[1:]
+        print("############## Using " + command + " ##############")
+        eval(command + '("' + msg + '")')
 
 dec_types = ['-rot13', '-base64enc', '-base64dec', '-a']
 
